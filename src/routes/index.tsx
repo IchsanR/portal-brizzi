@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import routes from "./routes";
 import ProtectedRoute from "./protectedRoute";
+
 const RouterIndex = () => {
   const renderRoute = (route: typeof routes[number], index: number) => {
     const Component = route.element;
@@ -12,13 +13,17 @@ const RouterIndex = () => {
     ) : (
       <Component />
     );
-    return <Route key={index} path={route.path} element={element} />;
+
+    return (
+      <Route key={index} path={route.path} element={element}>
+        {route.children?.map(renderRoute)}
+      </Route>
+    );
   };
+
   return (
     <BrowserRouter>
-      <Routes>
-        {routes.map(renderRoute)}
-      </Routes>
+      <Routes>{routes.map(renderRoute)}</Routes>
     </BrowserRouter>
   );
 };

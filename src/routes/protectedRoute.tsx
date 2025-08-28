@@ -1,7 +1,7 @@
-import type { RouterProps } from "@/types/routes";
-import { Navigate, Outlet } from "react-router";
+import type { PropsWithChildren } from "react";
+import { Navigate } from "react-router";
 
-const ProtectedRoute = ({ children }: RouterProps) => {
+const ProtectedRoute = ({ children }: PropsWithChildren) => {
   const isAuthenticated = () => {
     const token = localStorage.getItem("token");
     return !!token;

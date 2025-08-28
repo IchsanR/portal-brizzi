@@ -1,15 +1,20 @@
 import { CustomForm } from "@/components/customForm/CustomForm";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useNavigate } from "react-router";
 import z from "zod";
 
 const loginSchema = z.object({
-  username: z.string().min(1, "Email tidak valid"),
+  username: z.string().min(1, "Username tidak valid"),
   password: z.string().min(6, "Minimal 6 karakter"),
 });
 const Login = () => {
 
+  const navigate = useNavigate();
   const handleSubmit = (data: z.infer<typeof loginSchema>) => {
     console.log("Login data:", data);
+    localStorage.setItem("isAuthenticated", "true");
+    localStorage.setItem("token", "initoken");
+    navigate("/");
   };
 
   return (

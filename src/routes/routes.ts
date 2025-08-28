@@ -9,8 +9,15 @@ const routes: AppRoute[] = [
   },
   {
     path: "/",
-    element: lazy(() => import("@/pages/dashboard/home")),
+    element: lazy(() => import("@/layouts/dashboard/DashboardLayout")),
     protected: true,
+    children: [
+      {
+        path: "/",
+        element: lazy(() => import("@/pages/dashboard/home/home")),
+        protected: false,
+      }
+    ]
   },
 ];
 

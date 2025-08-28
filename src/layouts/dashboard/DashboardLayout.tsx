@@ -1,6 +1,12 @@
+import type { PropsWithChildren } from "react";
+import { Outlet } from "react-router";
+
 const DashboardLayout = () => {
   return (
-    <div>DashboardLayout</div>
+    <>
+      <div>DashboardLayout</div>
+      <Outlet />
+    </>
   );
 };
 
