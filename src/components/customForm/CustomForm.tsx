@@ -1,5 +1,5 @@
 // components/CustomForm.tsx
-import { useForm, type SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z, ZodObject, ZodType } from "zod";
 

@@ -1,3 +1,5 @@
+import type { z, ZodType } from "zod";
+
 export type FieldConfig = {
   name: string;
   label: string;
